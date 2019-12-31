@@ -8,6 +8,7 @@
             fill="#ef0d33" fill-rule="evenodd"/>
         </svg>
       </a>
+
       <div class="intro__hamburger">
         <span class="hamburger__line hamburger__line-1"></span>
         <span class="hamburger__line hamburger__line-2"></span>
@@ -15,36 +16,48 @@
       </div>
     </div>
 
+    <div class="intro__bg">
+      <video muted autoplay loop>
+        <source src="~assets/videos/bg.mp4" type="video/mp4">
+      </video>
+    </div>
+
     <div class="intro__content">
       <div class="intro__text">
         <div class="intro__headline">
-          Headline
+          Next level<br/>
+          Design &<br class="hidden"/>
+          Technology
         </div>
 
+        <div class="intro__divider"></div>
+
         <div class="intro__description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut laborum nam nemo perferendis quasi quo quod rem
-          sit tempore vero.
+          You have the vision for a stunning digital experience. We’re<br/>
+          the software design and engineering team that can bring it to life.
         </div>
 
         <div class="intro__button">
-          Button
+          <span class="intro__button-text">
+            Let's Get Started
+          </span>
         </div>
       </div>
 
       <div class="intro__play">
-        play button
+        <div class="intro__play-icon"></div>
       </div>
     </div>
 
     <div class="intro__footer">
       <div class="intro__footer-headline">
-        Lorem ipsum dolor sit.
+        We've built solutions for...
       </div>
 
       <div class="intro__clients">
-        <div>microsoft</div>
-        <div>boosted</div>
-        <div>hallmark</div>
+        <img class="intro__clients--microsoft" src="~assets/logos/microsoft.png" alt="Microsoft">
+        <img class="intro__clients--boosted" src="~assets/logos/boosted.png" alt="Boosted">
+        <img class="intro__clients--hallmark" src="~assets/logos/hallmark.png" alt="Hallmark">
       </div>
     </div>
   </div>
@@ -57,6 +70,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .hidden {
+    display: none;
+  }
   .intro {
     position: relative;
     height: 100vh;
@@ -64,6 +80,16 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
 
     &__header {
       position: relative;
@@ -107,23 +133,125 @@
 
     &__content {
       width: 100%;
-      background-color: red;
       display: flex;
       flex: 1;
       justify-content: space-between;
       align-items: center;
     }
 
+    &__text {
+      flex: 1;
+      padding-left: 130px;
+    }
+
+    &__headline {
+      font-family: 'Trump Gothic East', sans-serif;
+      font-size: 5.5rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    &__divider {
+      width: 40px;
+      height: 4px;
+      margin: 30px 0;
+      background-color: #ef0d33;
+    }
+
+    &__description {
+      font-family: 'Maison Neue', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    &__button {
+      width: 240px;
+      margin-top: 25px;
+      background-color: #ef0d33;
+      border: 2px solid transparent;
+      border-radius: 2px;
+      padding: 24px 0 20px;
+      text-align: center;
+
+      &-text {
+        font-family: 'Maison Neue', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+    }
+
+    &__play {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      margin-top: -60px;
+      padding-right: 130px;
+
+      &-icon {
+        width: 120px;
+        height: 120px;
+        border: 4px solid #ef0d33;
+        border-radius: 50%;
+      }
+    }
+
     &__footer {
+      position: relative;
       height: 96px;
       width: 100%;
-      background-color: blue;
+      /*border-top: 1px solid #dededf; //opacity: 0.2*/
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 130px;
+        right: 130px;
+        top: 0;
+        height: 1px;
+        background-color: #dededf;
+        opacity: 0.2;
+      }
+
+      &-headline {
+        font-family: 'Maison Neue', sans-serif;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        letter-spacing: .09375rem;
+        line-height: 1.5rem;
+        text-transform: uppercase;
+        padding-left: 130px;
+      }
     }
 
     &__clients {
+      max-width: 550px;
+      padding-left: 30px;
+      padding-right: 130px;
       display: flex;
+      flex: 1 0 auto;
+      align-items: center;
+      justify-content: space-between;
+
+      &--microsoft {
+        height: 24px;
+        width: 114px;
+      }
+
+      &--boosted {
+        height: 32px;
+        width: 132px;
+      }
+
+      &--hallmark {
+        height: 27px;
+        width: 103px;
+      }
     }
   }
 </style>
